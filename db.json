@@ -1,0 +1,25 @@
+{
+  "reminders": [
+    {
+      "title": "Feed Tiger",
+      "body": "Don't forget to feed the cat.",
+      "when": "2018-05-31T14:34:45.900Z",
+      "createdAt": "2018-05-31T12:34:45.901Z",
+      "id": "c8246507-989a-4385-9fa2-03a0ee73e497"
+    },
+    {
+      "title": "Buy a new phone",
+      "body": "Go get a new phone, since the old one could explode at any time...",
+      "when": "2018-06-05T00:34:45.902Z",
+      "createdAt": "2018-05-31T12:34:45.902Z",
+      "id": "d9cb02be-0381-4117-b046-09f8fa59872d"
+    },
+    {
+      "title": "Pay rent",
+      "body": "Next week, don't foreget to pay the rent.",
+      "when": "2018-06-05T15:34:45.902Z",
+      "createdAt": "2018-05-31T12:34:45.903Z",
+      "id": "1ee64098-e51f-468f-8dda-df0471c8f892"
+    }
+  ]
+}
