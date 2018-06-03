@@ -10,18 +10,21 @@ import { gameStart } from '../actions/game';
 
 const StartButton = (props) => {
   return (
-      <IconButton onClick={props.initGame} >
+      <IconButton onClick={() => props.initGame(props.state)} >
         <PlayArrowIcon />
       </IconButton>
   ) 
 }
 
 const mapStateToProps = state => ({
-
+  text: state.text.input,
+  state
 })
 
 const mapDispatchToProps = dispatch => ({
-  initGame: () => dispatch(gameStart())
+  initGame: (state) => {
+    gameStart(dispatch, state)
+  }
 })
 
 const style = theme => ({

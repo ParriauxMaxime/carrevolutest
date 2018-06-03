@@ -8,7 +8,6 @@ import { textInput } from '../actions/text';
 
 const TextToSpeechInput = (props) => {
     const { classes, value, onChange } = props;
-    console.log(value);
     return (
         <TextField multiline
             margin="normal"
