@@ -2,36 +2,53 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow'
+import StopIcon from '@material-ui/icons/Stop';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import { gameStart } from '../actions/game';
+import { gameStart, Action, GAME_END } from '../actions/game';
 
 const StartButton = (props) => {
   return (
-      <IconButton onClick={() => props.initGame(props.state)} >
-        <PlayArrowIcon />
-      </IconButton>
-  ) 
+    <Button
+      className={props.classes.button}
+      variant="raised"
+      color="primary"
+      disabled={!props.running && !!props.turn.length}
+      onClick={() => {
+        if (!props.running)
+          props.initGame()
+        else 
+          props.stopGame()
+      }}>
+      {!props.running ? "Start" : "Stop"}
+      {
+        !props.running ?
+          <PlayArrowIcon className={props.classes.rightIcon} /> :
+          <StopIcon className={props.classes.rightIcon} />
+      }
+    </Button>
+  )
 }
 
 const mapStateToProps = state => ({
-  text: state.text.input,
-  state
+  running: state.game.running,
+  turn: state.turn
 })
 
 const mapDispatchToProps = dispatch => ({
-  initGame: (state) => {
-    gameStart(dispatch, state)
-  }
+  initGame: () => gameStart(),
+  stopGame: () => dispatch(new Action(GAME_END))
 })
 
 const style = theme => ({
+  rightIcon: {
+    marginLeft: theme.spacing.unit,
+  },
   button: {
-    height: 50,
-    width: 50,
-  }
+    margin: theme.spacing.unit,
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(style)(StartButton))

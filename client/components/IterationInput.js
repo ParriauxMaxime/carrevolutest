@@ -2,21 +2,23 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 
-import Slider from '@material-ui/lab/Slider';
-import InputLabel from '@material-ui/core/InputLabel';
-
-import { iterationChange as iterationChangeAction } from '../actions/iteration'
 import withStyles from '@material-ui/core/styles/withStyles';
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Slider from '@material-ui/lab/Slider';
+
+import { formStyle } from './VoiceSelector';
+import { Action, ITERATION_CHANGE } from '../actions/game';
 
 
 const maxIteration = 8;
 
 const IterationInput = (props) => {
     return (
-        <React.Fragment>
-            <InputLabel htmlFor="iteration">
-                Nombre d'itérations : {props.value}
-            </InputLabel>
+        <FormControl className={props.classes.form}>
+            <FormHelperText>
+                Nombre de tours : {props.value}
+            </FormHelperText>
             <Slider onChange={(event, value) => props.onChange(value)}
                 value={props.value}
                 id={"iteration-slider"}
@@ -24,7 +26,7 @@ const IterationInput = (props) => {
                 max={maxIteration}
                 step={1}
             />
-        </React.Fragment>
+        </FormControl>
     )
 }
 
@@ -34,14 +36,14 @@ IterationInput.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    value: state.iteration
+    value: state.game.numberOfTurns
 })
 
 const mapDispatchToProps = dispatch => ({
-    onChange: (val) => dispatch(iterationChangeAction(val))
+    onChange: (val) => dispatch(new Action(ITERATION_CHANGE, val))
 })
 
 export default connect(
-    mapStateToProps, 
+    mapStateToProps,
     mapDispatchToProps
-)(IterationInput)
+)(withStyles(formStyle)(IterationInput))

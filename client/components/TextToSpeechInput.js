@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import TextField from '@material-ui/core/TextField';
 import withStyles from '@material-ui/core/styles/withStyles';
-
-import { textInput } from '../actions/text';
+import { Action, TEXT_CHANGE } from '../actions/game';
 
 const TextToSpeechInput = (props) => {
     const { classes, value, onChange } = props;
@@ -30,11 +29,11 @@ const styles = theme => ({
 
 
 export const mapStateToProps = state => ({
-    value: state.text.input
+    value: state.game.input
 })
 
 export const mapDispatchToProps = dispatch => ({
-    onChange: (event) => dispatch(textInput(event.target.value)),
+    onChange: (event) => dispatch(new Action(TEXT_CHANGE, event.target.value)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)

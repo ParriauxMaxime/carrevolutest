@@ -11,10 +11,10 @@ import theme from './theme';
 import reducers from './reducers';
 import routes from './routes';
 
+export const store = applyMiddleware(promise)(createStore)(reducers);
 const appRootEl = document.getElementById('app');
 
 if (appRootEl) {
-  const store = applyMiddleware(promise)(createStore)(reducers);
   const router = <Router history={browserHistory} routes={routes} />;
   if (process.env.NODE_ENV == 'production') {
     ReactDOM.render(<Provider store={store}>{router}</Provider>, appRootEl);
