@@ -5,6 +5,8 @@ import underscoreDb from 'underscore-db';
 
 const db = low(resolvePath(__dirname, '../db.json'), { storage: fileAsyncStorage });
 db._.mixin(underscoreDb);
-db.defaults({ reminders: [] }).value();
+db.defaults({ sessions: [] }).value();
+
+export const _DB = db;
 
 export default db;

@@ -1,25 +1,306 @@
 {
-  "reminders": [
+  "sessions": [
     {
-      "title": "Feed Tiger",
-      "body": "Don't forget to feed the cat.",
-      "when": "2018-05-31T14:34:45.900Z",
-      "createdAt": "2018-05-31T12:34:45.901Z",
-      "id": "c8246507-989a-4385-9fa2-03a0ee73e497"
+      "game": {
+        "running": true,
+        "input": "Danemark is sometimes sunny",
+        "autoPlay": false,
+        "londonCalling": false,
+        "erasmus": true,
+        "sessionDrawer": false,
+        "voice": "en-US_MichaelVoice",
+        "numberOfTurns": 5,
+        "currentTurn": 5,
+        "error": {
+          "open": true,
+          "reason": "Session en cours de sauvegarde"
+        }
+      },
+      "turn": [
+        {
+          "index": 0,
+          "model": "en-US",
+          "voice": "en-US_MichaelVoice",
+          "input": "Danemark is sometimes sunny",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136448956_extract.mp3",
+          "audioFileName": "1528136448956_extract.mp3",
+          "output": "Denmark is sometimes sunny "
+        },
+        {
+          "index": 1,
+          "model": "en-US",
+          "voice": "de-DE_BirgitVoice",
+          "input": "Denmark is sometimes sunny ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136451793_extract.mp3",
+          "audioFileName": "1528136451793_extract.mp3",
+          "output": "the molecules so many teams Winnie "
+        },
+        {
+          "index": 2,
+          "model": "en-US",
+          "voice": "es-US_SofiaVoice",
+          "input": "the molecules so many teams Winnie ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136456372_extract.mp3",
+          "audioFileName": "1528136456372_extract.mp3",
+          "output": "the more likely so money down Sweeney "
+        },
+        {
+          "index": 3,
+          "model": "en-US",
+          "voice": "fr-FR_ReneeVoice",
+          "input": "the more likely so money down Sweeney ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136460652_extract.mp3",
+          "audioFileName": "1528136460652_extract.mp3",
+          "output": "you know he key soon we need a new sweetness "
+        },
+        {
+          "index": 4,
+          "model": "en-US",
+          "voice": "es-US_SofiaVoice",
+          "input": "you know he key soon we need a new sweetness ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136466612_extract.mp3",
+          "audioFileName": "1528136466612_extract.mp3",
+          "output": "you're welcome to uecu solo in winning the nail swiftness "
+        }
+      ],
+      "name": "Erasmus - Danemark ( 5 tours )",
+      "timeStamp": "2018-06-04T18:21:12.887Z",
+      "id": "53cdff0f-b792-43dc-a59a-5c69c24f0702"
     },
     {
-      "title": "Buy a new phone",
-      "body": "Go get a new phone, since the old one could explode at any time...",
-      "when": "2018-06-05T00:34:45.902Z",
-      "createdAt": "2018-05-31T12:34:45.902Z",
-      "id": "d9cb02be-0381-4117-b046-09f8fa59872d"
+      "game": {
+        "running": true,
+        "input": "Danemark is sometimes sunny",
+        "autoPlay": false,
+        "londonCalling": false,
+        "erasmus": true,
+        "sessionDrawer": false,
+        "voice": "en-US_MichaelVoice",
+        "numberOfTurns": 2,
+        "currentTurn": 2,
+        "error": {
+          "open": true,
+          "reason": "Session en cours de sauvegarde"
+        }
+      },
+      "turn": [
+        {
+          "index": 0,
+          "model": "en-US",
+          "voice": "en-US_MichaelVoice",
+          "input": "Danemark is sometimes sunny",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136513488_extract.mp3",
+          "audioFileName": "1528136513488_extract.mp3",
+          "output": "Denmark is sometimes sunny "
+        },
+        {
+          "index": 1,
+          "model": "en-US",
+          "voice": "pt-BR_IsabelaVoice",
+          "input": "Denmark is sometimes sunny ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136516223_extract.mp3",
+          "audioFileName": "1528136516223_extract.mp3",
+          "output": "then Mackey so many teams so many "
+        }
+      ],
+      "name": "Erasmus - Danemark ( 2 tours, LC )",
+      "timeStamp": "2018-06-04T18:22:02.042Z",
+      "id": "71014d0b-1a86-4d0f-8bb0-c2503e51c686"
     },
     {
-      "title": "Pay rent",
-      "body": "Next week, don't foreget to pay the rent.",
-      "when": "2018-06-05T15:34:45.902Z",
-      "createdAt": "2018-05-31T12:34:45.903Z",
-      "id": "1ee64098-e51f-468f-8dda-df0471c8f892"
+      "game": {
+        "running": true,
+        "input": "Bonjour baguette, omelette du fromage et j'aime la femme",
+        "autoPlay": false,
+        "londonCalling": true,
+        "erasmus": true,
+        "sessionDrawer": false,
+        "voice": "fr-FR_ReneeVoice",
+        "numberOfTurns": 4,
+        "currentTurn": 4,
+        "error": {
+          "open": true,
+          "reason": "Session en cours de sauvegarde"
+        }
+      },
+      "turn": [
+        {
+          "index": 0,
+          "model": "fr-FR",
+          "voice": "fr-FR_ReneeVoice",
+          "input": "Bonjour baguette, omelette du fromage et j'aime la femme",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136601116_extract.mp3",
+          "audioFileName": "1528136601116_extract.mp3",
+          "output": "bonjour baguette un lait du fromage et j'aime la femme "
+        },
+        {
+          "index": 1,
+          "model": "en-US",
+          "voice": "de-DE_DieterVoice",
+          "input": "bonjour baguette un lait du fromage et j'aime la femme ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136612005_extract.mp3",
+          "audioFileName": "1528136612005_extract.mp3",
+          "output": "bones will buy get to lie to a full mug nine enough in the "
+        },
+        {
+          "index": 2,
+          "model": "en-US",
+          "voice": "es-US_SofiaVoice",
+          "input": "bones will buy get to lie to a full mug nine enough in the ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136619169_extract.mp3",
+          "audioFileName": "1528136619169_extract.mp3",
+          "output": "bonus waged with hit the door yet thoughtful Jim mood meaning only working day "
+        },
+        {
+          "index": 3,
+          "model": "en-US",
+          "voice": "en-US_AllisonVoice",
+          "input": "bonus waged with hit the door yet thoughtful Jim mood meaning only working day ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136628681_extract.mp3",
+          "audioFileName": "1528136628681_extract.mp3",
+          "output": "bonus waged with hit the door yet thoughtful Jamrud meaning only working day "
+        }
+      ],
+      "name": "Erasmus - Myself seen by the others",
+      "timeStamp": "2018-06-04T18:23:55.414Z",
+      "id": "117ba886-b10b-4353-9e6e-ff11c86c1879"
+    },
+    {
+      "game": {
+        "running": true,
+        "input": "I've been eating so many donuts that I can't skate anymore in L.A",
+        "autoPlay": false,
+        "londonCalling": true,
+        "erasmus": false,
+        "sessionDrawer": false,
+        "voice": "en-US_MichaelVoice",
+        "numberOfTurns": 4,
+        "currentTurn": 4,
+        "error": {
+          "open": true,
+          "reason": "Session en cours de sauvegarde"
+        }
+      },
+      "turn": [
+        {
+          "index": 0,
+          "model": "en-GB",
+          "voice": "en-US_MichaelVoice",
+          "input": "I've been eating so many donuts that I can't skate anymore in L.A",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136895773_extract.mp3",
+          "audioFileName": "1528136895773_extract.mp3",
+          "output": "I've been meeting so many down it's that I can skate anymore in la "
+        },
+        {
+          "index": 1,
+          "model": "en-US",
+          "voice": "en-GB_KateVoice",
+          "input": "I've been meeting so many down it's that I can skate anymore in la ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136903745_extract.mp3",
+          "audioFileName": "1528136903745_extract.mp3",
+          "output": "I've been meeting so many down it's that I can skate anymore in law "
+        },
+        {
+          "index": 2,
+          "model": "en-GB",
+          "voice": "en-US_MichaelVoice",
+          "input": "I've been meeting so many down it's that I can skate anymore in law ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136910071_extract.mp3",
+          "audioFileName": "1528136910071_extract.mp3",
+          "output": "I've been meeting so many down it's like and skate anymore in law "
+        },
+        {
+          "index": 3,
+          "model": "en-US",
+          "voice": "en-GB_KateVoice",
+          "input": "I've been meeting so many down it's like and skate anymore in law ",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528136915010_extract.mp3",
+          "audioFileName": "1528136915010_extract.mp3",
+          "output": "I've been meeting so many down it's like can skate anymore in Lowell "
+        }
+      ],
+      "name": "California meet London",
+      "timeStamp": "2018-06-04T18:28:40.042Z",
+      "id": "eb6095c7-f980-4c06-8df1-b2dd8f35d656"
+    },
+    {
+      "game": {
+        "running": true,
+        "input": "Please work",
+        "autoPlay": true,
+        "londonCalling": false,
+        "erasmus": false,
+        "sessionDrawer": false,
+        "voice": "en-US_MichaelVoice",
+        "numberOfTurns": 1,
+        "currentTurn": 1,
+        "error": {
+          "open": true,
+          "reason": "Session en cours de sauvegarde"
+        }
+      },
+      "turn": [
+        {
+          "index": 0,
+          "model": "en-US",
+          "voice": "en-US_MichaelVoice",
+          "input": "Please work",
+          "loadingAudio": false,
+          "loadingOutput": false,
+          "playingAudio": false,
+          "audio": "/static/1.0.0//1528138221895_extract.mp3",
+          "audioFileName": "1528138221895_extract.mp3",
+          "output": "please work "
+        }
+      ],
+      "name": "Production test",
+      "timeStamp": "2018-06-04T18:50:24.071Z",
+      "id": "1063a838-ec96-44a2-9022-a6bd133235dc"
     }
   ]
 }

@@ -6,6 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Slider from '@material-ui/lab/Slider';
+import Tooltip from '@material-ui/core/Tooltip'
 
 import { formStyle } from './VoiceSelector';
 import { Action, ITERATION_CHANGE } from '../actions/game';
@@ -19,13 +20,15 @@ const IterationInput = (props) => {
             <FormHelperText>
                 Nombre de tours : {props.value}
             </FormHelperText>
-            <Slider onChange={(event, value) => props.onChange(value)}
-                value={props.value}
-                id={"iteration-slider"}
-                min={1}
-                max={maxIteration}
-                step={1}
-            />
+            <Tooltip title={"Selectionner un nombre de tours (min : 1, max: " + maxIteration + ')'}>
+                <Slider onChange={(event, value) => props.onChange(value)}
+                    value={props.value}
+                    id={"iteration-slider"}
+                    min={1}
+                    max={maxIteration}
+                    step={1}
+                />
+            </Tooltip>
         </FormControl>
     )
 }

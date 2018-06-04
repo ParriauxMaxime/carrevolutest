@@ -5,7 +5,7 @@ import { Readable } from 'stream'
 
 import axios from 'axios';
 import config from '../app.config';
-import db from '../utils/db';
+import db, { _DB } from '../utils/db';
 
 require('dotenv')
 	.config()
@@ -33,11 +33,11 @@ router.get('/api/textToSpeech',
 		const timeStamp = Date.now();
 		const filename = timeStamp + '_extract.' + format;
 		textToSpeech.synthesize({
-				text,
-				accept: 'audio/' + format,
-				voice
-			}, (err, body, response) => {
-				return new Promise((resolve, reject) => {
+			text,
+			accept: 'audio/' + format,
+			voice
+		}, (err, body, response) => {
+			return new Promise((resolve, reject) => {
 					if (err) reject(err);
 					if (body) {
 						const stream = new Readable()
@@ -50,13 +50,17 @@ router.get('/api/textToSpeech',
 							filename
 						})
 					}
-				}).then(({filename, fileUrl}) => {
-					res.status(200).send({fileUrl, filename})
-				}).catch(err => {
-					console.error(err)
-					res.status(500).send(err);
 				})
-			})
+				.then(({ filename, fileUrl }) => {
+					res.status(200)
+						.send({ fileUrl, filename })
+				})
+				.catch(err => {
+					console.error(err)
+					res.status(500)
+						.send(err);
+				})
+		})
 	}
 );
 
@@ -89,5 +93,35 @@ router.get('/api/speechToText',
 		})
 	}
 )
+
+router.post('/api/saveSession', (req, res, next) => {
+	const {game, turn, session} = req.body;
+	const sessions = _DB.get('sessions');
+	const s = sessions.insert({
+			game,
+			turn,
+			name: session.name.length !== 0 ? session.name : null,
+			timeStamp: new Date(),
+		}).value()
+	res.status(200).send(s.id);
+});
+
+router.get('/api/sessions', (req, res, next) => {
+	try {
+		const sessions = _DB.get('sessions').value();
+		res.status(200).send(sessions);
+	}
+	catch (e) {
+		res.status(500).send('Sessions not found')
+	}
+});
+
+router.post('/api/loadSession', (req, res, next) => {
+	const {id} = req.body;
+	const sessions = _DB.get('sessions');
+	let value = sessions.getById(id).value();
+	if (!value) res.status(500).send('session ' + id + ' not found')
+	res.status(200).send(value);
+})
 
 export default router;

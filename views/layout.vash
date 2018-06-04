@@ -8,6 +8,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>@it.title</title>
     <meta name="author" content="Maxime Parriaux">
+    <style type="text/css">
+      html, body, #app {
+        height: 100%;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>

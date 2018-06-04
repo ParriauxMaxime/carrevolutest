@@ -2,25 +2,32 @@
 
 # Get started
 1. Configure your environnement  
-    * Add a .env file containing at the root of the repository containing the following or add the following value to your env
+    * Add a .env file at the root of the repository containing the following example or add value to your env.  
     ```
     T2S_USERNAME=********-****-****-****-************
     T2S_PASSWORD=************
     S2T_USERNAME=********-****-****-****-***********
     S2T_PASSWORD=************
-    ```
-    (Fill your credentials in place of the *****). 
+    ``` 
+    > T2S stand for "Text to Speech"  
+    > S2T stand for "Speech to Text"   
 
 2. Install dependencies
 ```
 npm i
 ```
 
-3. Start server
-```
-npm run dev
-```
-4. Go to `localhost:3000`  
+3. Start server  
+    * Development (default port = **3000**)
+    ```
+    npm run dev
+    ```
+    * Production (default port = **4242**)
+    ```
+    npm run build
+    npm start
+    ```
+4. Go to `localhost:port`  
 ______________
 ## Sujet
 

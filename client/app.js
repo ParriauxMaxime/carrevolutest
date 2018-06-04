@@ -17,10 +17,13 @@ const appRootEl = document.getElementById('app');
 if (appRootEl) {
   const router = <Router history={browserHistory} routes={routes} />;
   if (process.env.NODE_ENV == 'production') {
-    ReactDOM.render(<Provider store={store}>{router}</Provider>, appRootEl);
-  } 
+    ReactDOM.render(<Provider store={store}>
+      <MuiThemeProvider theme={theme}>
+        {router}
+      </MuiThemeProvider>
+    </Provider>, appRootEl);
+  }
   else {
-    
     const AppContainer = require('react-hot-loader').AppContainer;
     const render = () => {
       ReactDOM.render(

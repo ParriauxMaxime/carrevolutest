@@ -14,10 +14,11 @@ import Slide from '@material-ui/core/Slide';
 
 import TextToSpeechInput from './TextToSpeechInput';
 import Player from './Player';
+import { getFormattedVoiceName } from './VoiceSelector';
 
 class Turn extends Component {
     render() {
-        const { index, voice, input, output, loadingAudio, loadingOutput, audio, classes } = this.props;
+        const { index, voice, model, input, output, loadingAudio, loadingOutput, audio, classes } = this.props;
         const tourNumber = index + 1;
         return (
             <ListItem>
@@ -31,10 +32,22 @@ class Turn extends Component {
                         {input}
                     </Typography>
                     <Typography variant="caption">
+                        Voix de synthese
+                    </Typography>
+                    <Typography paragraph variant="body1">
+                        {getFormattedVoiceName(voice)}
+                    </Typography>
+                    <Typography variant="caption">
                         Audio {loadingAudio ? " (loading)" : null}
                     </Typography>
                     <Player index={index || 0} />
                     <Typography paragraph />
+                    <Typography variant="caption">
+                        Modèle de reconaissance
+                    </Typography>
+                    <Typography paragraph variant="body1">
+                        {model}
+                    </Typography>
                     <Typography variant="caption">
                         Output {loadingOutput ? " (loading)" : null}
                     </Typography>

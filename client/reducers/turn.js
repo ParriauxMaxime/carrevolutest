@@ -6,13 +6,17 @@ import {
     GOT_AUDIO, 
     LOADING_AUDIO, 
     GOT_OUTPUT, 
-    LOADING_OUTPUT 
+    LOADING_OUTPUT, 
+    CHANGE_MODEL,
+    CHANGE_VOICE,
+    SESSION_LOAD
 } from "../actions/game";
 
 const defaultState = []
 
 const Turn = (props) => ({
     index: 0,
+    model: 'en-US',
     voice: 'en-US_MichaelVoice',
     input: '',
     loadingAudio: false,
@@ -28,11 +32,13 @@ export default function (state = defaultState, action) {
     const index = (state && state.length !== 0) ?
         state[state.length - 1].index + 1 :
         0;
+        console.log(action);
     switch (action.type) {
         case ADD_TURN: {
             return [...state, new Turn({
                 index,
                 voice: action.payload.voice,
+                model: action.payload.model,
                 input: action.payload.input,
             })]
         }
@@ -62,6 +68,26 @@ export default function (state = defaultState, action) {
             const newState = [...state];
             try {
                 newState[action.payload.index].playingAudio = true;                
+                return newState;
+            }
+            catch(e) {
+                return state
+            }
+        }
+        case CHANGE_MODEL: {
+            const newState = [...state];
+            try {
+                newState[action.payload.index].model = action.payload.model;                
+                return newState;
+            }
+            catch(e) {
+                return state
+            }
+        }
+        case CHANGE_VOICE: {
+            const newState = [...state];
+            try {
+                newState[action.payload.index].voice = action.payload.voice;                
                 return newState;
             }
             catch(e) {
@@ -99,6 +125,8 @@ export default function (state = defaultState, action) {
                 return state
             }
         }
+        case SESSION_LOAD: 
+            return action.payload.turn
         case RESET: {
             return defaultState
         }
