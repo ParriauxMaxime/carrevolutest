@@ -17,29 +17,31 @@ import Player from './Player';
 
 class Turn extends Component {
     render() {
-        const { index, voice, input, output, loadingAudio, loadingOutput, audio } = this.props;
+        const { index, voice, input, output, loadingAudio, loadingOutput, audio, classes } = this.props;
         const tourNumber = index + 1;
         return (
             <ListItem>
-                <ListItemText primary={"Tour " + tourNumber } />
-                <ListItemText>                
+                <ListItemText primary={"Tour " + tourNumber}
+                    className={classes.listTitle} />
+                <div className={classes.listContent}>
                     <Typography variant="caption">
                         Input
-                    </Typography>                
-                    <Typography variant="body1">
-                        {input}                    
+                    </Typography>
+                    <Typography paragraph variant="body1">
+                        {input}
                     </Typography>
                     <Typography variant="caption">
-                        Output {loadingOutput ? " (loading)": null}
-                    </Typography>                
-                    <Typography variant="body1">
-                        {output}                    
+                        Audio {loadingAudio ? " (loading)" : null}
                     </Typography>
+                    <Player index={index || 0} />
+                    <Typography paragraph />
                     <Typography variant="caption">
-                        Audio {loadingAudio ? " (loading)": null}
+                        Output {loadingOutput ? " (loading)" : null}
                     </Typography>
-                </ListItemText>                
-                <Player index={index || 0} />
+                    <Typography variant="body1">
+                        {output}
+                    </Typography>
+                </div>
             </ListItem>
         )
     }
@@ -47,21 +49,20 @@ class Turn extends Component {
 
 const TurnList = props => {
     return (
-        <Paper>
+        <Paper className={props.classes.paper}>
             <List>
-            <ListItem>
-               <ListItemText primary="Tours"/>
-            </ListItem>
+                <ListItem>
+                    <ListItemText primary="Tours" />
+                </ListItem>
                 {
                     props.turns.map(turn => (
-                            <React.Fragment key={"turn-" + turn.index}>
-                                <Divider/>
-                                <Slide direction="up" in={true} mountOnEnter unmountOnExit>
-                                    <Turn {...turn} />
-                                </Slide>
-                            </React.Fragment>
-                        )
-                    )
+                        <React.Fragment key={"turn-" + turn.index}>
+                            <Divider />
+                            <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+                                <Turn {...turn} classes={props.classes} />
+                            </Slide>
+                        </React.Fragment>
+                    ))
                 }
             </List>
         </Paper>
@@ -79,6 +80,14 @@ export const mapDispatchToProps = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(
     withStyles(theme => ({
-
+        listTitle: {
+            flexGrow: 0,
+        },
+        listContent: {
+            flexGrow: 1,
+        },
+        paper: {
+            margin: theme.spacing.unit + "px 0"
+        }
     }))(TurnList)
 )

@@ -9,6 +9,7 @@ import {
     TEXT_CHANGE,
     ITERATION_CHANGE,
     VOICE_CHANGE,
+    GOT_OUTPUT,
 } from '../actions/game';
 
 const defaultState = {
@@ -35,6 +36,8 @@ export default (state = defaultState, action) => {
 			return { ...state, running: true };
 		case GAME_END:
 			return { ...state, running: false };
+		case GOT_OUTPUT: 
+			return { ...state, currentTurn: state.currentTurn + 1 }
 		case NO_TEXT_ERROR:
 			return { ...state, error: { open: true, reason: action.payload } }
 		case CLOSE_ERROR:

@@ -1,5 +1,27 @@
 # Le jeu du bouche à oreille
 
+# Get started
+1. Configure your environnement  
+    * Add a .env file containing at the root of the repository containing the following or add the following value to your env
+    ```
+    T2S_USERNAME=********-****-****-****-************
+    T2S_PASSWORD=************
+    S2T_USERNAME=********-****-****-****-***********
+    S2T_PASSWORD=************
+    ```
+    (Fill your credentials in place of the *****). 
+
+2. Install dependencies
+```
+npm i
+```
+
+3. Start server
+```
+npm run dev
+```
+4. Go to `localhost:3000`  
+______________
 ## Sujet
 
 Votre mission, si vous l'acceptez, sera de se marrer un bon coup en manipulant les API [text to speech](https://www.ibm.com/watson/services/text-to-speech/) et [speech to text](https://www.ibm.com/watson/services/speech-to-text/) d'IBM.

@@ -43,18 +43,19 @@ const getSpeechToText = (indexTurn) => {
 	const dispatch = store.dispatch;
 	const state = store.getState();
 	dispatch(new Action(LOADING_OUTPUT, { index: indexTurn }))
-	const { voice, audioFileName } = state.turn[indexTurn]
-	const model = voice.slice(0, 5)
+	const { voice, audioFileName } = state.turn[indexTurn];
+	const model = voice.slice(0, 5);
 	return axios.get('/api/speechToText' +
 			`?filename=${encodeURIComponent(audioFileName.slice(0, -4))}` +
 			`&model=${(models.indexOf(model) !== -1 ? model : "en-US")}`
 		)
 		.then(res => {
+			const output = res.data.results[0].alternatives[0].transcript
 			dispatch(new Action(GOT_OUTPUT, {
 				index: indexTurn,
-				output: res.data.results
+				output,
 			}))
-			console.log(res);
+			nextTurn(voice, output)
 		})
 		.catch(err => {
 			console.error(err);
@@ -79,6 +80,20 @@ const getTextToSpeech = (indexTurn) => {
 		.catch(err => { console.error(err) })
 }
 
+function nextTurn(voice, input) {
+	const dispatch = store.dispatch;
+	const state = store.getState()
+	if (state.game.currentTurn !== state.game.numberOfTurns) {
+		dispatch(new Action(ADD_TURN, {
+			voice,
+			input
+		}));
+		getTextToSpeech(state.game.currentTurn);
+	}
+	else 
+		dispatch(new Action(GAME_END))
+}
+
 export function gameStart() {
 	const dispatch = store.dispatch;
 	const state = store.getState();
@@ -87,16 +102,6 @@ export function gameStart() {
 		dispatch(new Action(NO_TEXT_ERROR, "Le champs texte est vide"))
 	else {
 		dispatch(new Action(GAME_START));
-		for (let index = 0; index < state.game.numberOfTurns; index++) {
-			dispatch(new Action(ADD_TURN, {
-				voice,
-				index,
-				input
-			}));
-			getTextToSpeech(index)
-				.then(_ => {
-					dispatch(new Action(GAME_END))
-				});
-		}
+		nextTurn(voice, input);
 	}
 }

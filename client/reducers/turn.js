@@ -28,7 +28,6 @@ export default function (state = defaultState, action) {
     const index = (state && state.length !== 0) ?
         state[state.length - 1].index + 1 :
         0;
-        console.log(action)
     switch (action.type) {
         case ADD_TURN: {
             return [...state, new Turn({
@@ -93,7 +92,7 @@ export default function (state = defaultState, action) {
             const newState = [...state];
             try {
                 newState[action.payload.index].loadingOutput = false;                
-                newState[action.payload.index].output = action.payload.outpu;
+                newState[action.payload.index].output = action.payload.output;
                 return newState;
             }
             catch(e) {
